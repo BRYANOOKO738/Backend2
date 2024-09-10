@@ -12,7 +12,11 @@ const PORT =process.env.port
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '', // Replace with your allowed domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 app.use('/routes/Users', UserRoute)
 app.use('/routes/Residency',ResidencyRoute)
